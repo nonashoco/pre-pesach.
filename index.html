@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="he">
+<html lang="he" dir="rtl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>טופס קורות חיים</title>
   <style>
     body {
-      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      font-family: Arial, sans-serif;
       background: linear-gradient(to bottom right, #e0eafc, #cfdef3);
       margin: 0;
       padding: 0;
@@ -16,36 +16,34 @@
       min-height: 100vh;
     }
     .container {
-      background-color: #ffffff;
+      background-color: white;
       padding: 30px;
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      width: 90%;
       max-width: 600px;
+      width: 90%;
     }
     h1 {
       text-align: center;
-      color: #333333;
-      margin-bottom: 30px;
+      margin-bottom: 20px;
+      color: #333;
     }
     label {
       display: block;
-      margin-top: 20px;
-      font-weight: 600;
-      color: #444;
+      margin-top: 15px;
+      font-weight: bold;
     }
-    textarea, input[type="text"], input[type="email"] {
+    input, textarea {
       width: 100%;
       padding: 10px;
-      margin-top: 6px;
+      margin-top: 5px;
       border: 1px solid #ccc;
       border-radius: 8px;
       font-size: 1em;
-      resize: vertical;
     }
     button {
+      margin-top: 25px;
       width: 100%;
-      margin-top: 30px;
       padding: 12px;
       background-color: #007bff;
       color: white;
@@ -53,7 +51,6 @@
       border-radius: 8px;
       font-size: 1em;
       cursor: pointer;
-      transition: background-color 0.3s ease;
     }
     button:hover {
       background-color: #0056b3;
@@ -63,24 +60,62 @@
 <body>
   <div class="container">
     <h1>טופס קורות חיים</h1>
-    <form action="https://hook.eu2.make.com/14go3a6ftulk26o7uupboia7kng2x4f8" method="POST">
+
+    <!-- טופס שליחת פרטים -->
+    <form id="cvForm">
       <label>שם מלא, טלפון, אימייל, עיר מגורים:</label>
-      <textarea name="personal_info" rows="3" required></textarea>
+      <textarea name="personal_info" required></textarea>
 
       <label>מה התפקיד או התחום שאת/ה מחפש/ת?</label>
       <input type="text" name="job_target" required>
 
       <label>מה הניסיון התעסוקתי הכי משמעותי שלך?</label>
-      <textarea name="work_experience" rows="4" required></textarea>
+      <textarea name="work_experience" required></textarea>
 
       <label>מה למדת? (מוסד, תחום, תעודה/תואר):</label>
-      <textarea name="education" rows="3" required></textarea>
+      <textarea name="education" required></textarea>
 
       <label>אילו כישורים חשובים יש לך?</label>
-      <textarea name="skills" rows="3" required></textarea>
+      <textarea name="skills" required></textarea>
 
       <button type="submit">שלח</button>
     </form>
   </div>
+
+  <!-- סקריפט לשליחת הנתונים וקבלת HTML מהווב-הוק -->
+  <script>
+    const form = document.getElementById("cvForm");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      // איסוף נתונים מהטופס
+      const formData = new FormData(form);
+      const data = {};
+      formData.forEach((value, key) => {
+        data[key] = value;
+      });
+
+      try {
+        // שליחת הנתונים ל־Make Webhook
+        const response = await fetch("https://hook.eu2.make.com/14go3a6ftulk26o7uupboia7kng2x4f8", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data),
+        });
+
+        const resultHTML = await response.text();
+
+        // פתיחת חלון חדש עם קורות החיים
+        const newWindow = window.open();
+        newWindow.document.open();
+        newWindow.document.write(resultHTML);
+        newWindow.document.close();
+      } catch (error) {
+        alert("אירעה שגיאה בשליחה. נסה שוב.");
+        console.error(error);
+      }
+    });
+  </script>
 </body>
 </html>
