@@ -10,9 +10,6 @@
       background: linear-gradient(to bottom right, #e0eafc, #cfdef3);
       margin: 0;
       padding: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
       min-height: 100vh;
     }
     .container {
@@ -22,6 +19,7 @@
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
       width: 90%;
       max-width: 600px;
+      margin: auto;
     }
     h1 {
       text-align: center;
@@ -58,6 +56,13 @@
     button:hover {
       background-color: #0056b3;
     }
+    #result {
+      margin-top: 40px;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
   </style>
 </head>
 <body>
@@ -81,10 +86,13 @@
 
       <button type="submit">שלח</button>
     </form>
+
+    <div id="result"></div>
   </div>
 
   <script>
     const form = document.getElementById("cvForm");
+    const resultDiv = document.getElementById("result");
 
     form.addEventListener("submit", async function (e) {
       e.preventDefault();
@@ -103,14 +111,14 @@
         });
 
         const html = await response.text();
+        resultDiv.innerHTML = html;
 
-        const blob = new Blob([html], { type: "text/html" });
-        const url = URL.createObjectURL(blob);
+        // גלילה לתוצאה
+        resultDiv.scrollIntoView({ behavior: "smooth" });
 
-        window.open(url, "_blank");
       } catch (error) {
         console.error("שגיאה:", error);
-        alert("אירעה שגיאה בעת יצירת קורות החיים.");
+        resultDiv.innerHTML = "<p style='color: red;'>אירעה שגיאה בעת שליחת הטופס.</p>";
       }
     });
   </script>
