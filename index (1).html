@@ -6,38 +6,33 @@
   <title>טופס קורות חיים</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: sans-serif;
       max-width: 600px;
-      margin: 50px auto;
+      margin: 40px auto;
       padding: 20px;
-      direction: rtl;
-      background-color: #f9f9f9;
-      border-radius: 12px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-    h2 {
-      text-align: center;
-      color: #333;
+      background-color: #f4f4f4;
+      border-radius: 10px;
     }
     label {
       display: block;
-      margin-top: 20px;
+      margin-top: 15px;
       font-weight: bold;
     }
-    input, textarea, button {
+    textarea, input[type="text"], input[type="email"] {
       width: 100%;
       padding: 10px;
       margin-top: 5px;
       border: 1px solid #ccc;
-      border-radius: 6px;
-      font-size: 16px;
-      box-sizing: border-box;
+      border-radius: 5px;
     }
     button {
-      background-color: #007BFF;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #007bff;
       color: white;
       border: none;
-      margin-top: 25px;
+      border-radius: 5px;
+      cursor: pointer;
     }
     button:hover {
       background-color: #0056b3;
@@ -45,25 +40,24 @@
   </style>
 </head>
 <body>
-  <h2>טופס קורות חיים</h2>
-  <form method="POST" action="https://hook.eu2.make.com/14go3a6ftulk26o7uupboia7kng2x4f8">
-    <label for="contact_info">שם מלא, טלפון, אימייל ועיר מגורים:</label>
-    <textarea id="contact_info" name="contact_info" rows="3" required></textarea>
+  <h1>טופס קורות חיים</h1>
+  <form action="https://hook.eu2.make.com/14go3a6ftulk26o7uupboia7kng2x4f8" method="POST">
+    <label>שם מלא, טלפון, אימייל, עיר מגורים:</label>
+    <textarea name="personal_info" rows="3" required></textarea>
 
-    <label for="position">מה התפקיד או התחום שאת/ה מחפש/ת?</label>
-    <input type="text" id="position" name="position" required>
+    <label>מה התפקיד או התחום שאת/ה מחפש/ת?</label>
+    <input type="text" name="job_target" required>
 
-    <label for="experience">מה הניסיון התעסוקתי הכי משמעותי שלך?</label>
-    <textarea id="experience" name="experience" rows="4" required></textarea>
+    <label>מה הניסיון התעסוקתי הכי משמעותי שלך?</label>
+    <textarea name="work_experience" rows="4" required></textarea>
 
-    <label for="education">מה למדת?</label>
-    <textarea id="education" name="education" rows="3" required></textarea>
+    <label>מה למדת? (מוסד, תחום, תעודה/תואר):</label>
+    <textarea name="education" rows="3" required></textarea>
 
-    <label for="skills">אילו כישורים הכי חשובים שיש לך?</label>
-    <textarea id="skills" name="skills" rows="3" required></textarea>
+    <label>אילו כישורים חשובים יש לך?</label>
+    <textarea name="skills" rows="3" required></textarea>
 
     <button type="submit">שלח</button>
   </form>
 </body>
 </html>
-
