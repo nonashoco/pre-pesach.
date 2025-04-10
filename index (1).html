@@ -1,1 +1,69 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>טופס קורות חיים</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 600px;
+      margin: 50px auto;
+      padding: 20px;
+      direction: rtl;
+      background-color: #f9f9f9;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+    label {
+      display: block;
+      margin-top: 20px;
+      font-weight: bold;
+    }
+    input, textarea, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+      box-sizing: border-box;
+    }
+    button {
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      margin-top: 25px;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <h2>טופס קורות חיים</h2>
+  <form method="POST" action="https://hook.eu2.make.com/14go3a6ftulk26o7uupboia7kng2x4f8">
+    <label for="contact_info">שם מלא, טלפון, אימייל ועיר מגורים:</label>
+    <textarea id="contact_info" name="contact_info" rows="3" required></textarea>
+
+    <label for="position">מה התפקיד או התחום שאת/ה מחפש/ת?</label>
+    <input type="text" id="position" name="position" required>
+
+    <label for="experience">מה הניסיון התעסוקתי הכי משמעותי שלך?</label>
+    <textarea id="experience" name="experience" rows="4" required></textarea>
+
+    <label for="education">מה למדת?</label>
+    <textarea id="education" name="education" rows="3" required></textarea>
+
+    <label for="skills">אילו כישורים הכי חשובים שיש לך?</label>
+    <textarea id="skills" name="skills" rows="3" required></textarea>
+
+    <button type="submit">שלח</button>
+  </form>
+</body>
+</html>
 
