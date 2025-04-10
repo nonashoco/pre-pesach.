@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html lang="he">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>טופס קורות חיים</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 600px;
+      margin: 50px auto;
+      padding: 20px;
+      direction: rtl;
+      background-color: #f5f5f5;
+      border-radius: 12px;
+    }
+    h2 {
+      text-align: center;
+    }
+    label {
+      display: block;
+      margin-top: 20px;
+    }
+    input, textarea, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+    button {
+      background-color: #4CAF50;
+      color: white;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <h2>טופס יצירת קורות חיים</h2>
+  <form method="POST" action="https://your-webhook-url.com" target="_blank">
+    <label for="name">שם מלא, טלפון, אימייל ועיר מגורים:</label>
+    <textarea id="name" name="contact_info" required></textarea>
+
+    <label for="position">מה התפקיד או התחום שאת/ה מחפש/ת?</label>
+    <input type="text" id="position" name="position" required>
+
+    <label for="experience">מה הניסיון התעסוקתי הכי משמעותי שלך?</label>
+    <textarea id="experience" name="experience" required></textarea>
+
+    <label for="education">מה למדת?</label>
+    <textarea id="education" name="education" required></textarea>
+
+    <label for="skills">אילו כישורים הכי חשובים שיש לך?</label>
+    <textarea id="skills" name="skills" required></textarea>
+
+    <button type="submit">שלח</button>
+  </form>
+</body>
+</html>
