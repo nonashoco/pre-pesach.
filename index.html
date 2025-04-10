@@ -6,33 +6,54 @@
   <title>טופס קורות חיים</title>
   <style>
     body {
-      font-family: sans-serif;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to bottom right, #e0eafc, #cfdef3);
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .container {
+      background-color: #ffffff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      width: 90%;
       max-width: 600px;
-      margin: 40px auto;
-      padding: 20px;
-      background-color: #f4f4f4;
-      border-radius: 10px;
+    }
+    h1 {
+      text-align: center;
+      color: #333333;
+      margin-bottom: 30px;
     }
     label {
       display: block;
-      margin-top: 15px;
-      font-weight: bold;
+      margin-top: 20px;
+      font-weight: 600;
+      color: #444;
     }
     textarea, input[type="text"], input[type="email"] {
       width: 100%;
       padding: 10px;
-      margin-top: 5px;
+      margin-top: 6px;
       border: 1px solid #ccc;
-      border-radius: 5px;
+      border-radius: 8px;
+      font-size: 1em;
+      resize: vertical;
     }
     button {
-      margin-top: 20px;
-      padding: 10px 20px;
+      width: 100%;
+      margin-top: 30px;
+      padding: 12px;
       background-color: #007bff;
       color: white;
       border: none;
-      border-radius: 5px;
+      border-radius: 8px;
+      font-size: 1em;
       cursor: pointer;
+      transition: background-color 0.3s ease;
     }
     button:hover {
       background-color: #0056b3;
@@ -40,24 +61,26 @@
   </style>
 </head>
 <body>
-  <h1>טופס קורות חיים</h1>
-  <form action="https://hook.eu2.make.com/14go3a6ftulk26o7uupboia7kng2x4f8" method="POST">
-    <label>שם מלא, טלפון, אימייל, עיר מגורים:</label>
-    <textarea name="personal_info" rows="3" required></textarea>
+  <div class="container">
+    <h1>טופס קורות חיים</h1>
+    <form action="https://hook.eu2.make.com/14go3a6ftulk26o7uupboia7kng2x4f8" method="POST">
+      <label>שם מלא, טלפון, אימייל, עיר מגורים:</label>
+      <textarea name="personal_info" rows="3" required></textarea>
 
-    <label>מה התפקיד או התחום שאת/ה מחפש/ת?</label>
-    <input type="text" name="job_target" required>
+      <label>מה התפקיד או התחום שאת/ה מחפש/ת?</label>
+      <input type="text" name="job_target" required>
 
-    <label>מה הניסיון התעסוקתי הכי משמעותי שלך?</label>
-    <textarea name="work_experience" rows="4" required></textarea>
+      <label>מה הניסיון התעסוקתי הכי משמעותי שלך?</label>
+      <textarea name="work_experience" rows="4" required></textarea>
 
-    <label>מה למדת? (מוסד, תחום, תעודה/תואר):</label>
-    <textarea name="education" rows="3" required></textarea>
+      <label>מה למדת? (מוסד, תחום, תעודה/תואר):</label>
+      <textarea name="education" rows="3" required></textarea>
 
-    <label>אילו כישורים חשובים יש לך?</label>
-    <textarea name="skills" rows="3" required></textarea>
+      <label>אילו כישורים חשובים יש לך?</label>
+      <textarea name="skills" rows="3" required></textarea>
 
-    <button type="submit">שלח</button>
-  </form>
+      <button type="submit">שלח</button>
+    </form>
+  </div>
 </body>
 </html>
